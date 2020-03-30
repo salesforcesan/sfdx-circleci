@@ -9,19 +9,19 @@ jobs:
         keys:
             - sfdx-version-41-local
     - run:
-          name: Install Salesforce DX
-          command: |
-              openssl aes-256-cbc -k $KEY -in assets/server.key.enc -out assets/server.key -d
-              
-              npm install sfdx-cli
-              node_modules/sfdx-cli/bin/run --version
-              node_modules/sfdx-cli/bin/run plugins --core
-      - run:
+        name: Install Salesforce DX
+        command: |
+            openssl aes-256-cbc -k $KEY -in assets/server.key.enc -out assets/server.key -d
+            
+            npm install sfdx-cli
+            node_modules/sfdx-cli/bin/run --version
+            node_modules/sfdx-cli/bin/run plugins --core
+    - run:
           name: Create Scratch Org
           command: |
               node_modules/sfdx-cli/bin/run force:auth:jwt:grant --clientid 3MVG9LBJLApeX_PCkOzJ1tVWDRIQEZKSu43lYdNnEE.lwErhjDrgJHD9.U9aSWk_4FoLON4d21ovf6kKqL4_P --jwtkeyfile assets/server.key --username salesforce.san@brave-badger-hbvhgp.com --setdefaultdevhubusername -a DevHub
               node_modules/sfdx-cli/bin/run force:org:create -v DevHub -s -f config/project-scratch-def.json -a scratch
-      - run:
+    - run:
           name: Remove Server Key
           when: always
           command: |
