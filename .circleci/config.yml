@@ -45,7 +45,7 @@ jobs:
       - run:
           name: Setup Org
           command: |
-            echo 'Running tests'            
+            echo 'Running tests'
             sfdx force:auth:jwt:grant --clientid 3MVG9LBJLApeX_PCkOzJ1tVWDRIQEZKSu43lYdNnEE.lwErhjDrgJHD9.U9aSWk_4FoLON4d21ovf6kKqL4_P --jwtkeyfile assets/server.key --username salesforce.san@brave-badger-hbvhgp.com --setdefaultdevhubusername -a hub
             sfdx force --help
             sfdx force:org:create -s -f ~/ci_app/config/project-scratch-def.json -a circle_build_$CIRCLE_BUILD_NUM --wait 2
