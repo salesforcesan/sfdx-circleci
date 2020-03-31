@@ -1,7 +1,11 @@
 {
-    "orgName": "wade.wegner Example",
+    "orgName": "Devhub",
     "edition": "Developer",
-    "orgPreferences" : {
-        "enabled": ["S1DesktopEnabled"]
+    "features": [],
+    "settings": {
+      "lightningExperienceSettings": {
+        "enableS1DesktopEnabled": true
+      }
     }
-}
+  }
+  
